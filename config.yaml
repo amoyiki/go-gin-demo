@@ -1,0 +1,31 @@
+system:
+  port: 8080
+
+mysql:
+  host: '192.168.1.251'
+  port: '3306'
+  database: 'go_test'
+  username: 'xyj'
+  password: 'ryrbz'
+  maxIdleConns: 10
+  maxOpenConns: 100
+  logMode: false
+  logZap: ""
+  tablePrefix: "t_"
+
+redis:
+  db: 0
+  host: '192.168.1.251'
+  port: '6379'
+  passwod: ''
+
+zap:
+  level: 'info'
+  format: 'console'
+  prefix: '[AAA]'
+  director: 'logs'
+  linkName: 'latest_log'
+  encodeLevel: 'LowercaseColorLevelEncoder'
+  stacktraceKey: 'stacktrace'
+  logInConsole: true
+  filepath: 'storage/logs'

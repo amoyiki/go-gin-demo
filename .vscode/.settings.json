@@ -1,0 +1,27 @@
+{
+    "go.goroot": "C:\\Program Files\\Go",
+    "go.gopath": "D:\\myworkpace\\mygo",
+    "go.inferGopath": true,
+    "go.autocompleteUnimportedPackages": true,
+    "go.gocodePackageLookupMode": "go",
+    "go.gotoSymbol.includeImports": true,
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
+    "go.docsTool": "gogetdoc",
+    "go.useLanguageServer": true,
+    "[go]": {
+        "editor.snippetSuggestions": "none",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "gopls": {
+        "usePlaceholders": true,
+        "wantCompletionDocumentation": true
+    },
+    "files.eol": "\n",
+    "go.testEnvVars": {
+        "xx": "yy"
+    }
+}
