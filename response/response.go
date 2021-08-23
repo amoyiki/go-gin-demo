@@ -21,6 +21,14 @@ func NewResponse(ctx *gin.Context) *Response {
 		Ctx: ctx,
 	}
 }
+
+func NewError(code int, msg string) ResponseContent {
+	return ResponseContent{
+		Code: code,
+		Msg:  msg,
+		Data: gin.H{},
+	}
+}
 func (r *Response) Success(data interface{}) {
 	if data == nil {
 		data = gin.H{}
@@ -32,10 +40,17 @@ func (r *Response) Success(data interface{}) {
 	r.Ctx.JSON(http.StatusOK, res)
 }
 
-func (r *Response) Error(code int, msg string) {
+func (r *Response) ErrorCode(code int, msg string) {
 	res := ResponseContent{}
 	res.Code = code
 	res.Msg = msg
 	res.Data = gin.H{}
 	r.Ctx.JSON(http.StatusOK, res)
+	r.Ctx.Abort()
+}
+
+func (r *Response) Error(res ResponseContent) {
+	r.Ctx.JSON(http.StatusOK, res)
+	r.Ctx.Abort()
+
 }

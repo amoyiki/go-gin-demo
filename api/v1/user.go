@@ -25,7 +25,7 @@ func (u *UserAPI) Add(c *gin.Context) {
 	vaild, err := utils.BindAndValid(c, form)
 	fmt.Println(err)
 	if !vaild {
-		resp.Error(400, err.Error())
+		resp.ErrorCode(400, err.Error())
 		fmt.Println(err.Error())
 		return
 	}
@@ -34,10 +34,11 @@ func (u *UserAPI) Add(c *gin.Context) {
 	user := models.User{
 		Username: form.Username,
 		Password: form.Password,
+		Model:    &models.Model{Status: form.Status},
 	}
 	err1 := global.DB.Create(&user).Error
 	if err1 != nil {
-		resp.Error(500, err1.Error())
+		resp.Error(global.ServerError)
 	}
 	resp.Success(nil)
 }
@@ -47,7 +48,7 @@ func (u *UserAPI) FindById(c *gin.Context) {
 	fmt.Println("id: " + id)
 	uid, err := strconv.ParseInt(id, 10, 64)
 	if err != nil {
-		resp.Error(400, "参数错误")
+		resp.Error(global.ParamError)
 		fmt.Println(err.Error())
 		return
 	}
@@ -56,7 +57,7 @@ func (u *UserAPI) FindById(c *gin.Context) {
 	user := &models.User{}
 	err1 := global.DB.Select(fields).Where("id=?", uid).First(&user).Error
 	if err1 != nil {
-		resp.Error(400, "参数错误")
+		resp.Error(global.ParamError)
 		fmt.Println(err1.Error())
 		return
 	}
