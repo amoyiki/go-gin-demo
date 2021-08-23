@@ -3,7 +3,7 @@ package redis
 import (
 	"context"
 	"fmt"
-	"go-gin-demo/global"
+	"go-gin-demo/internal/global"
 	"time"
 
 	"github.com/go-redis/redis"

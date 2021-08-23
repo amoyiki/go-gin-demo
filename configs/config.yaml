@@ -20,7 +20,7 @@ redis:
   passwod: ''
 
 zap:
-  level: 'info'
+  level: 'debug'
   format: 'console'
   prefix: '[AAA]'
   director: 'logs'

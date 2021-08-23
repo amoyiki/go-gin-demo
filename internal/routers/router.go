@@ -1,9 +1,9 @@
 package routers
 
 import (
-	v1 "go-gin-demo/api/v1"
-	"go-gin-demo/global"
-	"go-gin-demo/response"
+	"go-gin-demo/internal/api/v1"
+	"go-gin-demo/internal/global"
+	"go-gin-demo/internal/response"
 	"log"
 	"runtime/debug"
 

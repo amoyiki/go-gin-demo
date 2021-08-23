@@ -2,12 +2,11 @@ package v1
 
 import (
 	"fmt"
-	"go-gin-demo/global"
-	"go-gin-demo/models"
-	"go-gin-demo/request"
-	"go-gin-demo/response"
-	"go-gin-demo/utils"
-
+	global2 "go-gin-demo/internal/global"
+	models2 "go-gin-demo/internal/models"
+	"go-gin-demo/internal/request"
+	"go-gin-demo/internal/response"
+	"go-gin-demo/pkg/utils"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -31,14 +30,14 @@ func (u *UserAPI) Add(c *gin.Context) {
 	}
 
 	fmt.Printf("%v", form)
-	user := models.User{
+	user := models2.User{
 		Username: form.Username,
 		Password: form.Password,
-		Model:    &models.Model{Status: form.Status},
+		Model:    &models2.Model{Status: form.Status},
 	}
-	err1 := global.DB.Create(&user).Error
+	err1 := global2.DB.Create(&user).Error
 	if err1 != nil {
-		resp.Error(global.ServerError)
+		resp.Error(global2.ServerError)
 	}
 	resp.Success(nil)
 }
@@ -48,16 +47,16 @@ func (u *UserAPI) FindById(c *gin.Context) {
 	fmt.Println("id: " + id)
 	uid, err := strconv.ParseInt(id, 10, 64)
 	if err != nil {
-		resp.Error(global.ParamError)
+		resp.Error(global2.ParamError)
 		fmt.Println(err.Error())
 		return
 	}
 	fmt.Printf("id is: %v", uid)
 	fields := []string{"id", "username", "password", "status"}
-	user := &models.User{}
-	err1 := global.DB.Select(fields).Where("id=?", uid).First(&user).Error
+	user := &models2.User{}
+	err1 := global2.DB.Select(fields).Where("id=?", uid).First(&user).Error
 	if err1 != nil {
-		resp.Error(global.ParamError)
+		resp.Error(global2.ParamError)
 		fmt.Println(err1.Error())
 		return
 	}

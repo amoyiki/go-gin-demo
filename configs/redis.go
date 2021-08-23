@@ -1,4 +1,4 @@
-package config
+package configs
 
 type Redis struct {
 	Host     string `yaml:"host"`

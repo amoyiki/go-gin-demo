@@ -2,7 +2,7 @@ package models
 
 import (
 	"fmt"
-	"go-gin-demo/global"
+	"go-gin-demo/internal/global"
 	"log"
 	"os"
 	"time"

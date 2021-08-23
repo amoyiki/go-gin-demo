@@ -1,4 +1,4 @@
-package config
+package configs
 
 type Mysql struct {
 	Host         string `yaml:"host"`

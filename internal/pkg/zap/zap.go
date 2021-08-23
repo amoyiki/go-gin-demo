@@ -2,7 +2,7 @@ package zap
 
 import (
 	"fmt"
-	"go-gin-demo/global"
+	"go-gin-demo/internal/global"
 	"path"
 	"strings"
 	"time"

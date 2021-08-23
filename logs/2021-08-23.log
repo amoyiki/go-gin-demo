@@ -1,0 +1,7 @@
+[AAA]2021/08/23 - 11:47:54.843	error	redis connect ping fail, err:	{"err": "NOAUTH Authentication required."}
+go-gin-demo/internal/pkg/redis.Redis
+	D:/myworkpace/go-gin-demo/internal/pkg/redis/redis.go:25
+main.main
+	D:/myworkpace/go-gin-demo/cmd/main.go:32
+runtime.main
+	C:/Program Files/Go/src/runtime/proc.go:225

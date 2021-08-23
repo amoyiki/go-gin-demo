@@ -1,6 +1,8 @@
 package global
 
-import "go-gin-demo/response"
+import (
+	"go-gin-demo/internal/response"
+)
 
 var (
 	OK          = response.NewError(0, "OK")

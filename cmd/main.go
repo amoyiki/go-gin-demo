@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"go-gin-demo/global"
-	"go-gin-demo/models"
-	"go-gin-demo/pkg/redis"
-	"go-gin-demo/pkg/viper"
-	"go-gin-demo/pkg/zap"
-	"go-gin-demo/routers"
-	"go-gin-demo/utils"
+	"go-gin-demo/internal/global"
+	"go-gin-demo/internal/models"
+	"go-gin-demo/internal/pkg/redis"
+	"go-gin-demo/internal/pkg/viper"
+	"go-gin-demo/internal/pkg/zap"
+	"go-gin-demo/internal/routers"
+	"go-gin-demo/pkg/utils"
 	"net/http"
 	"time"
 

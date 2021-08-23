@@ -1,4 +1,4 @@
-package config
+package configs
 
 type Zap struct {
 	Level       string `yaml:"level"`
